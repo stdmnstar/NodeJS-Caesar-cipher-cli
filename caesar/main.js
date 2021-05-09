@@ -10,7 +10,7 @@ const main = ({ input, output, shift, action }) => {
         err => {
             if (err) {
                 errorHandler(7);
-            };
+            }
         }
     );
 };

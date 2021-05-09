@@ -7,7 +7,7 @@ const inputStream = (filename) => {
     if (!filename) {
         console.log('Type input text. Press Ctrl+C to exit:');
         return process.stdin;
-    };
+    }
 
     try {
         fs.accessSync(filename, fs.R_OK);
@@ -21,7 +21,7 @@ const inputStream = (filename) => {
 const outputStream = (filename) => {
     if (!filename) {
         return process.stdout;
-    };
+    }
 
     try {
         fs.accessSync(filename, fs.W_OK);

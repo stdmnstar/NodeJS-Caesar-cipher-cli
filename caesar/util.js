@@ -8,7 +8,7 @@ const errorHandler = (exitCode = 1) => {
 const exitListener = () => {
     process.on('exit', code => {
         if (code) {
-            console.error(`Exit with code: ${code}`);
+            console.error(`Exit code: ${code}`);
         }
     });
 };

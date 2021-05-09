@@ -15,20 +15,20 @@ const getArguments = () => {
 };
 
 const checkArguments = ({ shift, action }) => {
-    if (isNaN(shift) && typeof shift === 'number') {
-        errorHandler(1);
-    };
-
     if (shift === undefined) {
         errorHandler(2);
     };
 
-    if (action !== ENCODE && action !== DECODE) {
-        errorHandler(4);
-    };
-
     if (action === undefined) {
         errorHandler(3);
+    };
+
+    if (isNaN(shift) && typeof shift === 'number') {
+        errorHandler(1);
+    };
+
+    if (action !== ENCODE && action !== DECODE) {
+        errorHandler(4);
     };
 };
 

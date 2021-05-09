@@ -15,5 +15,4 @@ const main = ({ input, output, shift, action }) => {
     );
 };
 
-
 module.exports = { main };

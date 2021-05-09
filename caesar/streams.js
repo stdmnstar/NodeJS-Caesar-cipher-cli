@@ -8,13 +8,13 @@ const inputStream = (filename) => {
         return process.stdin;
     };
 
-    fs.access(filename, fs.R_OK, (err) => {
-        if (err) {
-            errorHandler(5);
-            return;
-        }
-    });
-    return fs.createReadStream(filename);
+    try {
+        fs.accessSync(filename, fs.R_OK);
+        return fs.createReadStream(filename);       
+    } catch (err) {
+        errorHandler(5);
+        return;
+    }
 };
 
 const outputStream = (filename) => {
@@ -22,13 +22,13 @@ const outputStream = (filename) => {
         return process.stdout;
     };
 
-    fs.access(filename, fs.W_OK, (err) => {
-        if (err) {
-            errorHandler(6);
-            return;
-        }
-    });
-    return fs.createWriteStream(filename, { flags: 'a+' });
+    try {
+        fs.accessSync(filename, fs.W_OK);
+        return fs.createWriteStream(filename, { flags: 'a+' });       
+    } catch (err) {
+        errorHandler(6);
+        return;
+    }
 };
 
 const transformStream = (action, shift) => {

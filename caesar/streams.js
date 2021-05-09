@@ -5,6 +5,7 @@ const { cipher } = require('./cipher');
 
 const inputStream = (filename) => {
     if (!filename) {
+        console.log('Type input text. Press Ctrl+C to exit:');
         return process.stdin;
     };
 

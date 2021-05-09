@@ -1,5 +1,7 @@
-const errorHandler = (errorMessage, exitCode = 1) => {
-    console.error(`Error: ${errorMessage}`);
+const { ERROR_MESSAGE } = require('./const');
+
+const errorHandler = (exitCode = 1) => {
+    console.error(`Error: ${ERROR_MESSAGE[exitCode]}`);
     process.exit(exitCode);
 };
 

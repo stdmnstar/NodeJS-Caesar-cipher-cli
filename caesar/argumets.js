@@ -1,7 +1,7 @@
 const { program } = require('commander');
 
 const { errorHandler } = require('./util');
-const { ALLOWED_ACTIONS, ERROR_MESSAGE } = require('./const');
+const { ALLOWED_ACTIONS } = require('./const');
 const { ENCODE, DECODE } = ALLOWED_ACTIONS;
 
 const getArguments = () => {
@@ -12,24 +12,24 @@ const getArguments = () => {
     program.option('-o, --output <type>', 'an output file');
     program.parse(process.argv);
     return program.opts();
-}
+};
 
 const checkArguments = ({ shift, action }) => {
     if (isNaN(shift) && typeof shift === 'number') {
-        errorHandler(ERROR_MESSAGE[1], 1);
-    }
+        errorHandler(1);
+    };
 
     if (shift === undefined) {
-        errorHandler(ERROR_MESSAGE[2], 2);
-    }
+        errorHandler(2);
+    };
 
     if (action !== ENCODE && action !== DECODE) {
-        errorHandler(ERROR_MESSAGE[4], 4);
-    }
+        errorHandler(4);
+    };
 
     if (action === undefined) {
-        errorHandler(ERROR_MESSAGE[3], 3);
-    }
-}
+        errorHandler(3);
+    };
+};
 
 module.exports = { getArguments, checkArguments };

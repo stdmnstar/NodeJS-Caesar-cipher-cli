@@ -5,7 +5,7 @@ const cipher = (text, action, shift) => {
     const alphabetLength = ALPHABET_TO_LOWER_CASE.length;
     if (action === DECODE) {
         shift *= -1;
-    }
+    };
 
     return (
         text.split('')
@@ -19,18 +19,17 @@ const cipher = (text, action, shift) => {
                 let position = (ALPHABET_TO_LOWER_CASE.indexOf(charToLowerCase) + shift) % alphabetLength;
                 if (position < 0) {
                     position += alphabetLength;
-                }
+                };
 
                 let newChar = ALPHABET_TO_LOWER_CASE[position];
                 if (char !== charToLowerCase) {
                     newChar = newChar.toUpperCase();
-                }
+                };
 
                 return newChar;
             })
             .join('')
     );
-
-}
+};
 
 module.exports = { cipher };

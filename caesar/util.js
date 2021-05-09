@@ -5,4 +5,12 @@ const errorHandler = (exitCode = 1) => {
     process.exit(exitCode);
 };
 
-module.exports = { errorHandler };
+const exitListener = () => {
+    process.on('exit', code => {
+        if (code) {
+            console.error(`Exit with code: ${code}`);
+        }
+    });
+};
+
+module.exports = { errorHandler, exitListener };
